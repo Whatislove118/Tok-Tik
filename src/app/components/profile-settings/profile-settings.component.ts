@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../../../HttpService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile-settings',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  next() {
+    this.router.navigate(['reg/settings/confident'])
+  }
 }

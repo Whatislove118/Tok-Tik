@@ -11,6 +11,8 @@ import {HttpService} from '../HttpService';
 import { HttpClientModule} from '@angular/common/http';
 import { SetProfileSettingsComponent } from './components/set-profile-settings/set-profile-settings.component';
 import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
+import { ConfidentComponent } from './components/confident/confident.component';
+import { SecurityComponent } from './components/security/security.component';
 
 
 
@@ -19,7 +21,9 @@ const appRoutes: Routes = [
   { path: 'auth', component: FormAuthComponent },
   { path: 'reg', component: FormRegComponent},
   { path: 'reg/settings', component: SetProfileSettingsComponent },
-  { path: 'reg/settings/profile', component: ProfileSettingsComponent}
+  { path: 'reg/settings/profile', component: ProfileSettingsComponent},
+  { path: 'reg/settings/confident', component: ConfidentComponent},
+  { path: 'reg/settings/security', component: SecurityComponent}
 ];
 
 @NgModule({
@@ -30,7 +34,9 @@ const appRoutes: Routes = [
     FormRegComponent,
     HeaderComponent,
     SetProfileSettingsComponent,
-    ProfileSettingsComponent
+    ProfileSettingsComponent,
+    ConfidentComponent,
+    SecurityComponent
   ],
   imports: [
     BrowserModule,

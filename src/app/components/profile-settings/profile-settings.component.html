@@ -1,4 +1,19 @@
 <app-header></app-header>
 <div>
-
+  <div>Введите username</div>
+  <input>
+  <div>Включить уведовления</div>
+  <label><input type = "radio" value="да" name="notification"> Да </label>
+  <label><input type = "radio" value="нет" name="notification"> Нет </label>
+  <div>Добавьте аватар</div>
+  <input type="file">
+  <div id="button-form" style="margin-left: 80px">
+    <div style="margin-top: 30px; margin-left: 40px">
+      <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
+    </div>
+    <br/>
+    <div style="margin-top: 15px; margin-left: 25px">
+      <a>Пропустить</a>
+    </div>
+  </div>
 </div>
