@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div id="div-form">
+  <form method="post">
+    <div class="input-group mb-3" style="width: 300px; margin-left: 40px">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">#</span>
+      </div>
+      <input type="text" class="form-control input-reg" [(ngModel)]="this.login" name="login" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3" style="width: 300px;margin-left: 40px">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon2">#</span>
+      </div>
+      <input type="email" class="form-control input-reg" [(ngModel)]="this.email" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group mb-3" style="width: 300px;margin-left: 40px">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">#</span>
+      </div>
+      <input type="password" class="form-control input-reg" [(ngModel)]="this.password" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon3">
+    </div>
+    <button type="button" class="btn btn-success" style="margin-left: 150px" (click)="sendData()">Success</button>
+  </form>
+</div>

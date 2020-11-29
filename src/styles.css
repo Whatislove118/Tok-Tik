@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+  background: url("https://se.ifmo.ru/~s263069/Isbd/image.jpg");
+  background-repeat: no-repeat;
+
+}
+
+#copyright-text{
+  margin-top: 250px;
+  margin-left: 60px;
+  position: relative;
+
+}
