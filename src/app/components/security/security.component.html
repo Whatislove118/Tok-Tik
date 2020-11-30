@@ -8,11 +8,11 @@
 <label for="your-devices">Ваши устройства:</label>
   <div id="your-devices">
     <ul>
-      <li *ngFor="let device of this.your_devices">{{device}}</li>
+      <li *ngFor="let device of this.user.profile_settings.your_device">{{device}}</li>
     </ul>
   </div>
 </div>
-<div id="button-form" style="margin-left: 80px">
+<div id="button-form" style="margin-left: 80px" *ngIf="first_routing">
   <div style="margin-top: 30px; margin-left: 40px">
     <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
   </div>

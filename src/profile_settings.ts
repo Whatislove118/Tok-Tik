@@ -13,7 +13,7 @@ export class Profile_settings{
   allow_likes_list_looking: string = 'all';
 
   two_step_verification: boolean = false;
-  your_device: string[] = [];
+  your_device: Array<string> = new Array();
 
   constructor() {
 
@@ -44,7 +44,8 @@ export class Profile_settings{
 
 
   check_devices(device:string){
-    if (this.your_device.indexOf(device)==0){
+    if (this.your_device.indexOf(device)==-1){
+      console.log(1);
         this.your_device.push(device)
     }
   }

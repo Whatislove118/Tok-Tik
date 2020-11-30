@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class HttpService{
   private user:User;
-  reg: boolean;
+  reg: boolean = false;
   url: string = "http://127.0.0.1:8000/auth/reg/";
 
   constructor(private http: HttpClient){}

@@ -15,11 +15,19 @@ export class ConfidentComponent implements OnInit {
   comments_filter: string;
   allow_private_messages: string;
   allow_likes_list_looking: string;
+  first_routing: boolean = true;
   constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
+    this.check_first_routing()
+    console.log(this.first_routing)
   }
 
+  check_first_routing(){
+    if(this.router.url!='/reg/settings/confident'){
+      this.first_routing = false;
+    }
+  }
   skip_confident_settings(){
     this.router.navigate(['reg/settings/security'])
   }

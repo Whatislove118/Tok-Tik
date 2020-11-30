@@ -17,10 +17,9 @@
         <label for="avatar-download">Добавьте аватар</label>
         <input type="file" class="form-control-file" [(ngModel)]="this.avatar" name="avatar"  id="avatar-download">
       </div>
-
     </div>
   </form>
-  <div id="button-form" style="margin-left: 70px">
+  <div *ngIf="first_routing" id="button-form" style="margin-left: 70px">
     <div style="margin-top: 30px; margin-left: 40px">
       <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
     </div>

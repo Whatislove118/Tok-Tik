@@ -16,6 +16,7 @@ import { SecurityComponent } from './components/security/security.component';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {Profile_settings} from '../profile_settings';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 
 
@@ -29,6 +30,12 @@ const appRoutes: Routes = [
   { path: 'reg/settings/confident', component: ConfidentComponent},
   { path: 'reg/settings/security', component: SecurityComponent},
   { path: 'profile', component: ProfileComponent},
+  { path: 'profile/settings', component: UserSettingsComponent},
+  { path: 'profile/settings/set_profile', component: ProfileSettingsComponent},
+  { path: 'profile/settings/set_confident', component: ConfidentComponent},
+  { path: 'profile/settings/set_security', component: SecurityComponent},
+
+
 
 
 ];
@@ -45,6 +52,7 @@ const appRoutes: Routes = [
     ConfidentComponent,
     SecurityComponent,
     ProfileComponent,
+    UserSettingsComponent,
 
   ],
   imports: [

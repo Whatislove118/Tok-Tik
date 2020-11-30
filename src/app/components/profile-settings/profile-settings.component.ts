@@ -14,12 +14,22 @@ export class ProfileSettingsComponent implements OnInit {
   username: string;
   push_notification: string;
   avatar: File;
+  first_routing: boolean = true;
 
 
   constructor(private router: Router, private httpService: HttpService) { }
 
+
+  check_first_routing(){
+    if(this.router.url!='/reg/settings/profile'){
+      this.first_routing = false;
+    }
+  }
+
   ngOnInit() {
     console.log(this.user)
+    this.check_first_routing()
+    console.log(this.first_routing)
   }
 
   skip_profile_settings(){

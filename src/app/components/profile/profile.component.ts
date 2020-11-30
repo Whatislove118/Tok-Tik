@@ -10,11 +10,11 @@ import {DeviceDetectorService} from 'ngx-device-detector';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  user: User = this.httpService.getUser();
   constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
-
+    this.httpService.reg = true;
   }
 
 
