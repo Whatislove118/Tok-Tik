@@ -9,6 +9,7 @@ export class HttpService{
   private user:User;
   reg: boolean;
   url: string = "http://127.0.0.1:8000/auth/reg/";
+
   constructor(private http: HttpClient){}
 
   sendRegData(user: User) : Observable<any>{

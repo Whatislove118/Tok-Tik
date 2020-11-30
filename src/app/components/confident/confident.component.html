@@ -1,26 +1,38 @@
 <app-header></app-header>
-<div>Приватный аккаунт</div>
-<label><input type = "radio" value="да" name="private"> Да </label>
-<label><input type = "radio" value="нет" name="private"> Нет </label>
-<div>Разрешить другим пользователям скачивать ваши видео</div>
-<label><input type = "radio" value="да" name="downloadVideo"> Да </label>
-<label><input type = "radio" value="нет" name="downloadVideo"> Нет </label>
-<div>Включить фильтр коментариев</div>
-<label><input type = "radio" value="да" name="CommentFilter"> Да </label>
-<label><input type = "radio" value="нет" name="CommentFilter"> Нет </label>
-<div>Кто может отправлять вам приватные сообщения</div>
-<label><input type = "radio" value="Все" name="PrivateMess"> Все </label>
-<label><input type = "radio" value="Друзья" name="PrivateMess"> Друзья </label>
-<label><input type = "radio" value="Никто" name="PrivateMess"> Никто </label>
-<div>Кто видит понравившиеся вам видео</div>
-<label><input type = "radio" value="Все" name="LikeList"> Все </label>
-<label><input type = "radio" value="Только я" name="LikeList"> Только я </label>
+<div style="margin-left: 15%">
+  <label for="private-account">Приватный аккаунт</label>
+  <div id="private-account">
+    <label><input type = "radio" [(ngModel)]="this.private_account" value="true" name="private" > Да </label>
+    <label><input type = "radio" [(ngModel)]="this.private_account" value="false" name="private" class="right-rb"> Нет </label>
+  </div>
+  <label for="allow-downloaded">Разрешить другим пользователям скачивать ваши видео</label>
+  <div id="allow-downloaded">
+    <label><input type = "radio" [(ngModel)]="this.allow_download_video" value="true" name="downloadVideo"> Да </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_download_video" value="false" name="downloadVideo" class="right-rb"> Нет </label>
+  </div>
+  <label for="comment-filter">Включить фильтр коментариев</label>
+  <div id="comment-filter">
+    <label><input type = "radio" [(ngModel)]="this.comments_filter" value="true" name="CommentFilter"> Да </label>
+    <label><input type = "radio" [(ngModel)]="this.comments_filter" value="false" name="CommentFilter" class="right-rb"> Нет </label>
+  </div>
+  <label for="allow-private-messages">Кто может отправлять вам приватные сообщения</label>
+  <div id="allow-private-messages">
+    <label><input type = "radio" [(ngModel)]="this.allow_private_messages" value="all" name="PrivateMess"> Все </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_private_messages" value="friends" name="PrivateMess" style="margin-left: 50px"> Друзья </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_private_messages" value="nobody" name="PrivateMess" style="margin-left: 50px"> Никто </label>
+  </div>
+  <label for="allow-likes-list-video">Кто видит понравившиеся вам видео</label>
+  <div id="allow-likes-list-video">
+    <label><input type = "radio" [(ngModel)]="this.allow_likes_list_looking" value="all" name="LikeList"> Все </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_likes_list_looking" value="me" name="LikeList" class="right-rb"> Только я </label>
+  </div>
+</div>
 <div id="button-form" style="margin-left: 80px">
-  <div style="margin-top: 30px; margin-left: 40px">
+  <div style="margin-top: 30px; margin-left: 30px">
     <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
   </div>
   <br/>
-  <div style="margin-top: 15px; margin-left: 25px">
-    <a>Пропустить</a>
+  <div style="margin-top: 15px; margin-left: 60px">
+    <a (click)="skip_confident_settings()">Пропустить</a>
   </div>
 </div>

@@ -13,6 +13,10 @@ import { SetProfileSettingsComponent } from './components/set-profile-settings/s
 import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
 import { ConfidentComponent } from './components/confident/confident.component';
 import { SecurityComponent } from './components/security/security.component';
+import {DeviceDetectorService} from 'ngx-device-detector';
+import {Profile_settings} from '../profile_settings';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 
@@ -23,7 +27,10 @@ const appRoutes: Routes = [
   { path: 'reg/settings', component: SetProfileSettingsComponent },
   { path: 'reg/settings/profile', component: ProfileSettingsComponent},
   { path: 'reg/settings/confident', component: ConfidentComponent},
-  { path: 'reg/settings/security', component: SecurityComponent}
+  { path: 'reg/settings/security', component: SecurityComponent},
+  { path: 'profile', component: ProfileComponent},
+
+
 ];
 
 @NgModule({
@@ -36,7 +43,9 @@ const appRoutes: Routes = [
     SetProfileSettingsComponent,
     ProfileSettingsComponent,
     ConfidentComponent,
-    SecurityComponent
+    SecurityComponent,
+    ProfileComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +54,7 @@ const appRoutes: Routes = [
     HttpClientModule,
 
   ],
-  providers: [HttpService],
+  providers: [HttpService, DeviceDetectorService, Profile_settings],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

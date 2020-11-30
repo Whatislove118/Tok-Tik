@@ -1,19 +1,32 @@
 <app-header></app-header>
 <div>
-  <div>Введите username</div>
-  <input>
-  <div>Включить уведовления</div>
-  <label><input type = "radio" value="да" name="notification"> Да </label>
-  <label><input type = "radio" value="нет" name="notification"> Нет </label>
-  <div>Добавьте аватар</div>
-  <input type="file">
-  <div id="button-form" style="margin-left: 80px">
+  <form method="post" style="margin-left: 40px; margin-top: 100px;width:75%">
+    <div class="form-group" style="margin-left: 20%">
+      <div style="margin-top: 20px">
+        <label for="username-input">Введите username</label>
+        <input type="text" id="username-input" name="username" [(ngModel)]="this.username" style="width: 200px" class="form-control" placeholder="ex. best-tik-toker">
+      </div>
+      <div style="margin-top: 20px" class="form-group">
+        <label for="rb-container">Включить уведомления</label>
+        <div id="rb-container">
+          <label for="rb1"><input type = "radio" value="true" [(ngModel)]="this.push_notification" name="notification" id="rb1"> Да </label>
+          <label for="rb2"><input type = "radio" value="false" [(ngModel)]="this.push_notification" name="notification" id="rb2" style="margin-left: 95px"> Нет </label>
+        </div>
+      </div>
+      <div style="margin-top: 20px" class="form-group">
+        <label for="avatar-download">Добавьте аватар</label>
+        <input type="file" class="form-control-file" [(ngModel)]="this.avatar" name="avatar"  id="avatar-download">
+      </div>
+
+    </div>
+  </form>
+  <div id="button-form" style="margin-left: 70px">
     <div style="margin-top: 30px; margin-left: 40px">
       <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
     </div>
     <br/>
-    <div style="margin-top: 15px; margin-left: 25px">
-      <a>Пропустить</a>
+    <div style="margin-top: 15px; margin-left:  70px">
+      <a (click)="skip_profile_settings()">Пропустить</a>
     </div>
   </div>
 </div>

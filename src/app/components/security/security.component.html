@@ -1,17 +1,24 @@
 <app-header></app-header>
-<div>Включить двухфакторную аутентификацию</div>
-<label><input type = "radio" value="да" name="2FA"> Да </label>
-<label><input type = "radio" value="нет" name="2FA"> Нет </label>
-<div>Последняя активность</div>
-<ul>
-  <li>Комп влада</li>
-</ul>
-<div id="button-form" style="margin-left: 80px">
-  <div style="margin-top: 30px; margin-left: 40px">
-    <a><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
-  </div>
-  <br/>
-  <div style="margin-top: 15px; margin-left: 25px">
-    <a>Пропустить</a>
+<div style="margin-left: 20%">
+<label for="2FA">Включить двухфакторную аутентификацию</label>
+<div id="2FA">
+  <label><input type = "radio" [(ngModel)]="this.two_step_verification" value="true" name="2FA"> Да </label>
+  <label><input type = "radio" [(ngModel)]="this.two_step_verification" value="false" name="2FA" style="margin-left: 100px"> Нет </label>
+</div>
+<label for="your-devices">Ваши устройства:</label>
+  <div id="your-devices">
+    <ul>
+      <li *ngFor="let device of this.your_devices">{{device}}</li>
+    </ul>
   </div>
 </div>
+<div id="button-form" style="margin-left: 80px">
+  <div style="margin-top: 30px; margin-left: 40px">
+    <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
+  </div>
+  <br/>
+  <div style="margin-top: 15px; margin-left: 70px">
+    <a (click)="skip_security_settings()">Пропустить</a>
+  </div>
+</div>
+
