@@ -1,0 +1,12 @@
+#content {
+  column-count: 3;
+  column-gap: 0;
+}
+.layout_panel {
+  break-inside: avoid;
+  padding: 5px;
+}
+.layout_content {
+  padding: 10px;
+  border-radius: 10px;
+}
