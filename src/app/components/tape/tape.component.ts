@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../../../HttpService';
+import {Router} from '@angular/router';
 
 
 
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TapeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService, private router:Router) { }
 
   ngOnInit() {
 
