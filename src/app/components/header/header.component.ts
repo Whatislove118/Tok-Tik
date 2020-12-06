@@ -8,17 +8,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  header_on_profile = false;
   constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
-    this.check_pos_header();
-  }
 
-
-  check_pos_header(){
-    if(this.router.url=='/profile' || this.router.url == '/profile/.'){
-      this.header_on_profile = true;
-    }
   }
 }

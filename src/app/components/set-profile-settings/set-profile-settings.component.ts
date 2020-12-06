@@ -19,6 +19,7 @@ export class SetProfileSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.user);
     this.user.profile_settings= new Profile_settings();
 
   }

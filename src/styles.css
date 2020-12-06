@@ -3,7 +3,7 @@
 body{
   background: url("https://se.ifmo.ru/~s263069/Isbd/image.jpg");
   background-repeat: no-repeat;
-
+  overflow: hidden;
 }
 
 #copyright-text{

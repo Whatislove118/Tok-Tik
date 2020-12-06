@@ -23,6 +23,10 @@ export class ConfidentComponent implements OnInit {
     console.log(this.first_routing)
   }
 
+  submit_changes(){
+    alert('Настройки были изменены')
+  }
+
   check_first_routing(){
     if(this.router.url!='/reg/settings/confident'){
       this.first_routing = false;

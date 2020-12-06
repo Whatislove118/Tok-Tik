@@ -1,57 +1,89 @@
 <app-header></app-header>
 <div>
   <div id = "avatar" style="margin-right: auto; margin-left: auto; width: 150px">
-    <img style="border-radius: 100px; width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-    <p style="margin-left: 27px">@Платина</p>
+    <img style="border: 1px solid black;border-radius: 100px; width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+    <p style="margin-left: 27px">@{{this.user.profile_settings.username}}</p>
   </div>
 
-  <div id = "info" style="height: 100px">
-    <div style="float: left; margin-right: 10px; width: 70px">
-      <label>Подписки</label>
-      <div id = "subscriptions">3</div>
+  <div id = "info" style="display: flex;flex-basis: 20%; justify-content: space-around; border: 2px solid black; background: white" >
+    <div style="">
+      <label for="subscriptions">Подписки</label>
+      <p style="margin-left: 30px" id = "subscriptions">3</p>
     </div>
-    <div style="float: left; margin-left: 10px; width: 70px">
-      <label>Подписчики</label>
-      <div id = "subscribers">1</div>
+    <div style="">
+      <label for="subscribers">Подписчики</label>
+      <p style="margin-left: 40px" id = "subscribers">1</p>
     </div>
-    <div style="float: left; margin-left: 20px; width: 70px; height: 56px">
-      <label>Лайки</label>
-      <div id = "like">0</div>
+    <div style="">
+      <label for="like">Лайки</label>
+      <p style="margin-left: 20px" id = "like">0</p>
     </div>
   </div>
-
+  <div style="height: 279px; overflow: scroll; background: black">
   <div id="content">
     <div class="layout_panel">
       <div class="layout_content">
-        <img style="width: 100px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
       </div>
     </div>
     <div class="layout_panel">
       <div class="layout_content">
-        <img style="width: 100px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
       </div>
     </div>
     <div class="layout_panel">
       <div class="layout_content">
-        <img style="width: 100px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
       </div>
     </div>
     <div class="layout_panel">
       <div class="layout_content">
-        <img style="width: 100px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
       </div>
     </div>
     <div class="layout_panel">
       <div class="layout_content">
-        <img style="width: 100px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
       </div>
     </div>
     <div class="layout_panel">
       <div class="layout_content">
-        <img style="width: 100px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      </div>
+    </div>
+    <div class="layout_panel">
+      <div class="layout_content">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      </div>
+    </div>
+    <div class="layout_panel">
+      <div class="layout_content">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      </div>
+    </div>
+    <div class="layout_panel">
+      <div class="layout_content">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      </div>
+    </div>
+    <div class="layout_panel">
+      <div class="layout_content">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      </div>
+    </div>
+    <div class="layout_panel">
+      <div class="layout_content">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      </div>
+    </div>
+    <div class="layout_panel">
+      <div class="layout_content">
+        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
       </div>
     </div>
   </div>
+  </div>
 </div>
+<app-navbar> </app-navbar>
 
 

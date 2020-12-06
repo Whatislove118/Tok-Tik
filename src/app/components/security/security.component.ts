@@ -16,14 +16,20 @@ export class SecurityComponent implements OnInit {
   constructor(private deviceService: DeviceDetectorService,private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
+    console.log(this.user);
     this.user.profile_settings.check_devices(this.deviceService.getDeviceInfo().device);
-    this.check_first_routing()
+    this.check_first_routing();
+    console.log(this.first_routing);
   }
 
   check_first_routing(){
     if(this.router.url!='/reg/settings/security'){
       this.first_routing = false;
     }
+  }
+
+  submit_changes(){
+    alert('Настройки были изменены')
   }
 
   skip_security_settings(){
@@ -34,3 +40,4 @@ export class SecurityComponent implements OnInit {
     this.router.navigate(['profile'])
   }
 }
+

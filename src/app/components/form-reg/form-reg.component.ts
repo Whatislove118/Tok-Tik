@@ -23,8 +23,6 @@ export class FormRegComponent implements OnInit {
 
   sendData() {
     this.user = new User(this.login, this.password, this.email);
-    this.user.profile_settings = null;
-    console.log(this.user);
     this.httpService.setUser(this.user);
     this.router.navigate(['reg/settings'])
     // this.httpService.sendRegData(this.user).subscribe();

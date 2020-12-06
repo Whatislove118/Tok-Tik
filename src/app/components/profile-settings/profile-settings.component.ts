@@ -32,6 +32,10 @@ export class ProfileSettingsComponent implements OnInit {
     console.log(this.first_routing)
   }
 
+  submit_changes(){
+    alert('Настройки были изменены')
+  }
+
   skip_profile_settings(){
     this.router.navigate(['reg/settings/confident'])
   }

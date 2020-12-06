@@ -17,6 +17,13 @@ import {DeviceDetectorService} from 'ngx-device-detector';
 import {Profile_settings} from '../profile_settings';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {MainGuard} from './MainGuard';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { SearchComponent } from './components/search/search.component';
+import { TapeComponent } from './components/tape/tape.component';
+import {Utils} from 'tslint';
+import {CarouselComponent, CarouselModule} from 'ngx-bootstrap/carousel';
 
 
 
@@ -25,19 +32,17 @@ const appRoutes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'auth', component: FormAuthComponent },
   { path: 'reg', component: FormRegComponent},
-  { path: 'reg/settings', component: SetProfileSettingsComponent },
-  { path: 'reg/settings/profile', component: ProfileSettingsComponent},
-  { path: 'reg/settings/confident', component: ConfidentComponent},
-  { path: 'reg/settings/security', component: SecurityComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'profile/settings', component: UserSettingsComponent},
-  { path: 'profile/settings/set_profile', component: ProfileSettingsComponent},
-  { path: 'profile/settings/set_confident', component: ConfidentComponent},
-  { path: 'profile/settings/set_security', component: SecurityComponent},
-
-
-
-
+  { path: 'reg/settings', component: SetProfileSettingsComponent ,canActivate:[MainGuard]},
+  { path: 'reg/settings/profile', component: ProfileSettingsComponent, canActivate:[MainGuard]},
+  { path: 'reg/settings/confident', component: ConfidentComponent, canActivate:[MainGuard]},
+  { path: 'reg/settings/security', component: SecurityComponent, canActivate:[MainGuard]},
+  { path: 'profile', component: ProfileComponent, canActivate:[MainGuard]},
+  { path: 'profile/settings', component: UserSettingsComponent, canActivate:[MainGuard]},
+  { path: 'profile/settings/set_profile', component: ProfileSettingsComponent, canActivate:[MainGuard]},
+  { path: 'profile/settings/set_confident', component: ConfidentComponent, canActivate:[MainGuard]},
+  { path: 'profile/settings/set_security', component: SecurityComponent, canActivate:[MainGuard]},
+  { path: 'search', component: SearchComponent, canActivate: [MainGuard]},
+  { path: 'tape', component: TapeComponent, canActivate: [MainGuard]}
 ];
 
 @NgModule({
@@ -53,16 +58,27 @@ const appRoutes: Routes = [
     SecurityComponent,
     ProfileComponent,
     UserSettingsComponent,
+    NavbarComponent,
+    SearchComponent,
+    TapeComponent,
+
 
   ],
+  exports: [
+    HttpClientModule
+  ],
+
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpClientModule,
+    CarouselModule.forRoot(),
+
+
+
 
   ],
-  providers: [HttpService, DeviceDetectorService, Profile_settings],
+  providers: [HttpService, MainGuard, {provide:LocationStrategy,useClass:HashLocationStrategy}, DeviceDetectorService, Profile_settings],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

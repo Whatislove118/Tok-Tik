@@ -36,3 +36,9 @@
     <a (click)="skip_confident_settings()">Пропустить</a>
   </div>
 </div>
+<div *ngIf="!first_routing" style="margin-left: 70px">
+  <div style="margin-top: 30px; margin-left: 40px">
+    <a (click)="submit_changes()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
+  </div>
+</div>
+<app-navbar *ngIf="!first_routing"> </app-navbar>
