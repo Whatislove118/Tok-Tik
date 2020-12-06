@@ -1,0 +1,25 @@
+#pl {
+  position: absolute;
+  z-index: -1;
+  margin-top: 175px;
+  margin-left: 115px;
+}
+#video{
+  position: relative;
+}
+#statistics{
+  position: absolute;
+  width: 40px;
+  height: 200px;
+  /*background-color: red;*/
+  z-index: 2;
+  margin-left: 320px;
+  margin-top: 200px;
+  opacity: 0.7;
+}
+#audio{
+  opacity: 0.7;
+  position: absolute;
+  margin-left: 295px;
+  margin-top: 5px;
+}

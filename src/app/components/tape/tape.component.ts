@@ -1,8 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from '../../../HttpService';
 import {Router} from '@angular/router';
-
-
+import {User} from '../../../user';
 
 @Component({
   selector: 'app-tape',
@@ -11,16 +10,29 @@ import {Router} from '@angular/router';
 })
 export class TapeComponent implements OnInit {
   @ViewChild('videoElement', {static: false}) video: ElementRef;
+  @ViewChild('gg', {static: false}) img: ElementRef;
+  flag : boolean  = false;
+  // user: User = this.httpService.getUser();
   constructor(private httpService: HttpService, private router:Router) { }
 
   ngOnInit() {
-
+    // this.httpService.reg = true;
   }
   //stop on click
-  playOrStopVideo(){
-    this.video.nativeElement.play();
-    //this.video.nativeElement.pause();
-
+  playOrStopVideo() {
+    switch (this.flag) {
+      case (this.flag = false): {
+        this.video.nativeElement.play();
+        this.flag = true;
+        this.img.nativeElement.style.zIndex = "-1";
+        break;
+      } case (this.flag = true): {
+        this.video.nativeElement.pause();
+        this.flag = false;
+        this.img.nativeElement.style.zIndex = "1";
+        break;
+      }
+    }
   }
 
 

@@ -1,10 +1,24 @@
 <div style="background: black; width: 375px; height: 734px">
 <app-header></app-header>
   <div>
-  <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 500px;" #videoElement>
-    <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
-    <source src="https://2ch.hk/b/arch/2020-11-30/src/234351340/16067410652820.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-  </video>
+    <div id="statistics">
+      <img style="border: 1px solid black;border-radius: 40px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      <img style="margin-top: 30px; border: 1px solid black;border-radius: 40px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      <img style="margin-top: 30px; border: 1px solid black;border-radius: 40px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+    </div>
+    <img #gg  (click)="playOrStopVideo()" id = "pl" style="border: 1px solid black;border-radius: 100px; width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+    <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 450px;" #videoElement>
+      <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
+      <source src="https://2ch.hk/b/arch/2020-11-30/src/234351340/16067410652820.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+    </video>
+    <div id="audio">
+      <img style="border: 1px solid black;border-radius: 70px; width: 70px; height: 70px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+    </div>
+    <div>
+<!--      <p style="margin-left: 27px">@{{this.user.profile_settings.username}}</p>-->
+      <p style="color: white; margin-left: 10px">отличное видео для всей семьи</p>
+      <p style="color: white; margin-left: 10px; margin-bottom: 5px">#камапуля, #хасик, #КлубникаБомбаЧестноГоворя</p>
+    </div>
   </div>
 <app-navbar></app-navbar>
 </div>
