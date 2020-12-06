@@ -24,8 +24,17 @@ export class FormRegComponent implements OnInit {
   sendData() {
     this.user = new User(this.login, this.password, this.email);
     this.httpService.setUser(this.user);
-    this.router.navigate(['reg/settings'])
-    // this.httpService.sendRegData(this.user).subscribe();
+    console.log(this.httpService.regUser(this.user)
+      .subscribe(
+        data=>{
+          alert("Вы были успешны зарегестрированы!");
+          this.router.navigate(['reg/settings']);
+         },
+        onerror=>{
+          alert("Ошибка регистрации! Повторите попытку позднее")
+        }
+    ));
+
   }
 
 

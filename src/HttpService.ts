@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User} from './user';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 
@@ -8,12 +8,14 @@ import {Observable} from 'rxjs';
 export class HttpService{
   private user:User;
   reg: boolean = false;
-  url: string = "http://127.0.0.1:8000/auth/reg/";
+  url: string = "http://127.0.0.1:8000/api/user/";
+  private data: string;
 
   constructor(private http: HttpClient){}
 
-  sendRegData(user: User) : Observable<any>{
-    return this.http.post(this.url, {user: user})
+  regUser(user: User) : Observable<any>{
+    const headers = new HttpHeaders().set('content-type', 'application/json')
+    return this.http.post(this.url, {"user": this.user}, {headers: headers} )
   }
 
   setUser(user:User){

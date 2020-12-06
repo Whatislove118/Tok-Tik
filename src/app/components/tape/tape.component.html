@@ -1,18 +1,19 @@
 <div style="background: black; width: 375px; height: 734px">
 <app-header></app-header>
   <div>
+
     <div id="statistics">
-      <img style="border: 1px solid black;border-radius: 40px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      <img style="margin-top: 30px; border: 1px solid black;border-radius: 40px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      <img style="margin-top: 30px; border: 1px solid black;border-radius: 40px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      <img  style="width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/share-icon.png">
+      <img style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/comment-icon.png">
+      <img style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/like-icon.png">
     </div>
-    <img #gg  (click)="playOrStopVideo()" id = "pl" style="border: 1px solid black;border-radius: 100px; width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-    <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 450px;" #videoElement>
+    <img #pause  (click)="playOrStopVideo()" id = "pl" style="width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/play-icon.png">
+    <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 450px;" #videoElement autoplay loop>
       <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
-      <source src="https://2ch.hk/b/arch/2020-11-30/src/234351340/16067410652820.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+      <source src="https://r1---sn-npoe7n7r.googlevideo.com/videoplayback?expire=1607299528&ei=aB3NX7v9I4T8vAStipegAw&ip=36.65.244.240&id=o-AAJL9b6xzccHKP3tDkb3wo9WjqKSX-k9h3JFwJ6MUPUd&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=0KVNmI9EHJXvS0tcSkGouOEF&gir=yes&clen=3880018&ratebypass=yes&dur=48.111&lmt=1574766632309032&fvip=1&c=WEB&txp=2211222&n=R7XVzFyUd2VdDpnmx&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgJApXVy_Xz3xZOGBjVzxHOkUdyqkLM3hh5tGy5HTubvcCIGMMXHrrih9ZNitiqD8wHiCSeTKwIWAd6Do7UyXGLmJF&redirect_counter=1&rm=sn-2uuxa3vh-cqvl7e&req_id=accd3161db14a3ee&cms_redirect=yes&ipbypass=yes&mh=HI&mm=29&mn=sn-npoe7n7r&ms=rdu&mt=1607277890&mv=m&mvi=1&pl=20&lsparams=ipbypass,mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgegEOGCJylFTdBSVGbYFydVwbfWQfUjHWxJG0OG-hCbYCIGPgILWERdh6XTsNaPEp3yT_7Qm4cOhktV_Xq4vyzKN1" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
     </video>
     <div id="audio">
-      <img style="border: 1px solid black;border-radius: 70px; width: 70px; height: 70px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+      <img style="border: 1px solid black;border-radius: 70px; width: 70px; height: 70px" src = "https://se.ifmo.ru/~s263069/Isbd/music-icon.png">
     </div>
     <div>
 <!--      <p style="margin-left: 27px">@{{this.user.profile_settings.username}}</p>-->
