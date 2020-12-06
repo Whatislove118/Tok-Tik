@@ -22,8 +22,8 @@ import {MainGuard} from './MainGuard';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { SearchComponent } from './components/search/search.component';
 import { TapeComponent } from './components/tape/tape.component';
-import {Utils} from 'tslint';
-import {CarouselComponent, CarouselModule} from 'ngx-bootstrap/carousel';
+
+
 
 
 
@@ -72,7 +72,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    CarouselModule.forRoot(),
+
 
 
 

@@ -1,7 +1,7 @@
 <div style="background: black; width: 375px; height: 734px">
 <app-header></app-header>
   <div>
-  <video onclick="console.log(1)" style="width:375px; height: 500px;">
+  <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 500px;" #videoElement>
     <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
     <source src="https://2ch.hk/b/arch/2020-11-30/src/234351340/16067410652820.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
   </video>
