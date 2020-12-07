@@ -23,6 +23,8 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { SearchComponent } from './components/search/search.component';
 import { TapeComponent } from './components/tape/tape.component';
 import { ShareLinkComponent } from './components/share-link/share-link.component';
+import { MusicComponent } from './components/music/music.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 
 
@@ -43,7 +45,9 @@ const appRoutes: Routes = [
   { path: 'profile/settings/set_confident', component: ConfidentComponent, canActivate:[MainGuard]},
   { path: 'profile/settings/set_security', component: SecurityComponent, canActivate:[MainGuard]},
   { path: 'search', component: SearchComponent, canActivate: [MainGuard]},
-  { path: 'tape', component: TapeComponent, canActivate: [MainGuard]}
+  { path: 'tape', component: TapeComponent, canActivate: [MainGuard]},
+  { path: 'video/music', component: MusicComponent, canActivate: [MainGuard]},
+  { path: 'video/comments', component: CommentsComponent, canActivate: [MainGuard]}
 ];
 
 @NgModule({
@@ -63,6 +67,8 @@ const appRoutes: Routes = [
     SearchComponent,
     TapeComponent,
     ShareLinkComponent,
+    MusicComponent,
+    CommentsComponent,
 
 
   ],

@@ -1,0 +1,33 @@
+#list-comments{
+  display: flex;
+  background: white;
+  overflow: scroll;
+  height: 480px;
+  flex-direction: column;
+}
+.comment-like-icon{
+  width: 20px;
+  height: 20px;
+}
+.comment{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+.comment-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid black;
+}
+.comment-description{
+  font-size: small;
+  font-family: Monaco;
+}
+
+#send-comment{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+}

@@ -24,7 +24,13 @@ export class TapeComponent implements OnInit {
     // this.httpService.reg = true;
   }
 
+  goToComments(){
+    this.router.navigate(['video/comments'])
+  }
 
+  goToMusic(){
+    this.router.navigate(['video/music'])
+  }
   shareVideo(){
    this.shareComponent.shareVideo();
   }
