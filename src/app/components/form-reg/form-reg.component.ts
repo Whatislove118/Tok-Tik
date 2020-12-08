@@ -10,7 +10,7 @@ import {HttpService} from '../../../HttpService';
 })
 export class FormRegComponent implements OnInit {
   user : User;
-  login:string = "";
+  username:string = "";
   password:string="";
   email:string="";
 
@@ -22,11 +22,12 @@ export class FormRegComponent implements OnInit {
   }
 
   sendData() {
-    this.user = new User(this.login, this.password, this.email);
+    this.user = new User(this.username, this.password, this.email);
     this.httpService.setUser(this.user);
     console.log(this.httpService.regUser(this.user)
       .subscribe(
         data=>{
+          alert(data.headers);
           alert("Вы были успешны зарегестрированы!");
           this.router.navigate(['reg/settings']);
          },
