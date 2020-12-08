@@ -28,9 +28,6 @@ import { CommentsComponent } from './components/comments/comments.component';
 
 
 
-
-
-
 const appRoutes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'auth', component: FormAuthComponent },
@@ -80,9 +77,6 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-
-
-
 
 
   ],
