@@ -14,8 +14,8 @@ export class HttpService{
   constructor(private http: HttpClient){}
 
   regUser(user: User) : Observable<any>{
-    const headers = new HttpHeaders().set('content-type', 'application/json')
-    return this.http.post(this.url, {"user": this.user}, {headers: headers} )
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.post(this.url, {"user": this.user}, {headers: headers, withCredentials:true} )
   }
 
   setUser(user:User){

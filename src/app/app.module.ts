@@ -25,6 +25,7 @@ import { TapeComponent } from './components/tape/tape.component';
 import { ShareLinkComponent } from './components/share-link/share-link.component';
 import { MusicComponent } from './components/music/music.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import {CookieService} from 'ngx-cookie-service';
 
 
 
@@ -80,7 +81,8 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [HttpService, MainGuard, {provide:LocationStrategy,useClass:HashLocationStrategy}, DeviceDetectorService, Profile_settings],
+  providers: [HttpService, CookieService, MainGuard, {provide:LocationStrategy,useClass:HashLocationStrategy}, DeviceDetectorService, Profile_settings],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
