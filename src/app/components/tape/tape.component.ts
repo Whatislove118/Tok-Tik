@@ -19,6 +19,7 @@ export class TapeComponent implements OnInit {
   @ViewChild('pause', {static: false}) img: ElementRef;
   @ViewChild('skipVideo', {static: false}) div: ElementRef;
   @ViewChild('video', {static: false}) source: ElementRef;
+  @ViewChild('link', {static: false}) link: ElementRef;
   @ViewChild(ShareLinkComponent, {static: false}) shareComponent: ShareLinkComponent;
   flag : boolean  = true;
   num : number = 0;
@@ -26,7 +27,7 @@ export class TapeComponent implements OnInit {
   playIconSrc: string = 'https://se.ifmo.ru/~s263069/Isbd/play-icon.png';
   shareLink: string = 'http://localhost:4200/#/tape';
   // user: User = this.httpService.getUser();
-  vid = ["https://2ch.hk/b/src/234971472/16074511849440.mp4", "https://2ch.hk/b/src/234971472/16074512777210.mp4", "https://2ch.hk/b/src/234971472/16074516977990.mp4"];
+  vid = ["https://2ch.hk/b/src/234971472/16074516977990.mp4", "https://2ch.hk/b/src/234971472/16074511849440.mp4", "https://2ch.hk/b/src/234971472/16074512777210.mp4"];
   constructor(private httpService: HttpService, private router:Router) {
 
   }
@@ -49,12 +50,16 @@ export class TapeComponent implements OnInit {
     this.router.navigate(['video/comments'])
 
   }
-
   goToMusic(){
     this.router.navigate(['video/music'])
   }
   shareVideo(){
-   this.shareComponent.shareVideo();
+   // this.shareComponent.shareVideo();
+
+      this.link.nativeElement.style.zIndex = "2"
+  }
+  hide(){
+    this.link.nativeElement.style.zIndex = "-1"
   }
 
   playOrStopVideo() {

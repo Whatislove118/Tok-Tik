@@ -24,3 +24,17 @@
   margin-left: 295px;
   margin-top: 5px;
 }
+#buttons{
+  position: absolute;
+  z-index: 2;
+}
+#link{
+  position: absolute;
+  z-index: -1;
+  background-color: white;
+  width: 365px;
+  height: 90px;
+  border-radius: 10px;
+  border: solid;
+  margin-left: 5px;
+}

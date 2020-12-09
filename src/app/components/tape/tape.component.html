@@ -2,7 +2,7 @@
 
   <app-header></app-header>
   <div>
-    <div>
+    <div id="buttons">
       <button (click)="back()" style="background-color: green; margin-left: 20px">
         Назад!
       </button>
@@ -11,9 +11,10 @@
       </button>
     </div>
     <div id="statistics">
-      <img  (click)="shareVideo()" style="width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/share-icon.png">
+      <img  (click)="shareVideo()" style="width: 40px; height: 40px; background-color: white;border: 1px solid black;border-radius: 40px;" src = "https://se.ifmo.ru/~s263069/Isbd/share-icon.png">
       <a (click)="goToComments()"><img style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/comment-icon.png"></a>
       <img style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/like-icon.png">
+      <div style="color: white">222K</div>
     </div>
     <img #pause  (click)="playOrStopVideo()" id = "pl" style="width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/play-icon.png">
     <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 450px;" #videoElement loop>
@@ -22,6 +23,10 @@
     </video>
     <div id="audio">
       <a (click)="goToMusic()"><img style="border: 1px solid black;border-radius: 70px; width: 70px; height: 70px" src = "https://se.ifmo.ru/~s263069/Isbd/music-icon.png"></a>
+    </div>
+    <div id="link" #link>
+      <img (click)="hide()" style="width: 20px; height: 20px; margin-left: 335px" src = "https://se.ifmo.ru/~s263069/Isbd/exit.png">
+      <p style="text-align: center"><a href="https://2ch.hk/b/src/234971472/16074516977990.mp4">https://2ch.hk/b/src/234971472/16074516977990.mp4</a></p>
     </div>
     <div>
 <!--      <p style="margin-left: 27px">@{{this.user.profile_settings.username}}</p>-->
