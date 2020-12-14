@@ -48,6 +48,8 @@ const appRoutes: Routes = [
   { path: 'video/comments', component: CommentsComponent, canActivate: [MainGuard]}
 ];
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,

@@ -7,8 +7,8 @@ export class User {
   password: string;
   profile_settings: Profile_settings;
 
-  constructor(username: string, password: string, email: string) {
-    this.login = username;
+  constructor(login: string, password: string, email: string) {
+    this.login = login;
     this.password = password;
     this.email = email;
   }

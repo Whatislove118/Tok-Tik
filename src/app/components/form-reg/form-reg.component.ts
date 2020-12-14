@@ -14,6 +14,7 @@ export class FormRegComponent implements OnInit {
   login:string = "";
   password:string="";
   email:string="";
+  private statusReg: number;
 
 
   constructor(private router: Router, private httpService: HttpService, private cookieService:CookieService) { }
@@ -22,19 +23,40 @@ export class FormRegComponent implements OnInit {
 
   }
 
+
+  sendTestData(){
+    this.httpService.test().subscribe((data:Response)=>{
+      console.log(data.body)
+    })
+  }
+
   sendData() {
     this.user = new User(this.login, this.password, this.email);
     this.httpService.setUser(this.user);
-    console.log(this.httpService.regUser(this.user)
-      .subscribe(
-        data=>{
 
-          //this.router.navigate(['reg/settings']);
+    this.httpService.regUser()
+      .subscribe(
+        (data:Response, )=>{
+          console.log(data.status);
+          data.status === 201 ? this.httpService.reg = true : false;
+          this.httpService.authUser().subscribe((data:Response)=>{
+              this.httpService.access_token = data.headers.get('access-token');
+              this.httpService.refresh_token = data.headers.get('refresh-token');
+              if( data.status === 200){
+                alert('Вы были успешно зарегестрированы!');
+                this.router.navigate(['/reg/settings'])
+              }else {
+                alert('Ошибка ! Повторите попытку позднее')
+              }
+            },
+            onerror=>{
+              alert('Ошибка регистрации! Повторите попытку позднее')
+            })
          },
         onerror=>{
-          alert("Ошибка регистрации! Повторите попытку позднее")
+          alert("Ошибка регистрации! Пользователь с таким login и email уже существует!")
         }
-    ));
+    );
 
   }
 
