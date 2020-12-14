@@ -11,18 +11,33 @@ export class HttpService{
   reg: boolean = false;
   access_token:string = null;
   refresh_token:string = null;
+  private headers = new HttpHeaders().set('content-type', 'application/json');
+
+
   private serverUrls = {
     'reg': 'http://127.0.0.1:8000/users/',
     'auth': 'http://127.0.0.1:8000/users/auth/',
-    'test': 'http://127.0.0.1:8000/api-token/refresh/'
+    'test': 'http://127.0.0.1:8000/api-token/refresh/',
+    'profile_settings': 'http://127.0.0.1:8000/users/profile/settings',
   };
-  private headers = new HttpHeaders().set('content-type', 'application/json');
+
+
 
 
 
   private data;
 
   constructor(private http: HttpClient){}
+
+  setTokensInFields(access_token: string, refresh_token: string){
+    this.access_token = access_token;
+    this.refresh_token = refresh_token;
+  }
+
+  setTokensInHeaders(){
+    this.headers = this.headers.set('Access-Token', this.access_token);
+    this.headers = this.headers.set('Refresh-Token' , this.refresh_token);
+  }
 
   regUser() : Observable<any>{
     return this.http.post(this.serverUrls.reg, {"user": this.user}, {headers: this.headers, withCredentials:true, observe: 'response'} )
@@ -35,9 +50,11 @@ export class HttpService{
   }
 
   test(): Observable<any>{
-    this.headers = this.headers.set('Access-Token', this.access_token);
-    this.headers = this.headers.set('Refresh-Token' , this.refresh_token);
     return this.http.post(this.serverUrls.test, {},{headers: this.headers, withCredentials:true, observe: 'response'})
+  }
+
+  sendProfileSettings(): Observable<any>{
+    return this.http.post(this.serverUrls.profile_settings, {'profile-settings': this.user.profile_settings}, {headers: this.headers, withCredentials:true, observe: 'response'})
   }
 
   setUser(user:User){

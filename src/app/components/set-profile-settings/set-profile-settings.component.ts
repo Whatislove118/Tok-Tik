@@ -26,7 +26,15 @@ export class SetProfileSettingsComponent implements OnInit {
 
 
   skip_settings(){
-    this.router.navigate(['profile'])
+    console.log(JSON.stringify(this.user.profile_settings));
+    console.log(JSON.stringify(this.httpService.getUser().profile_settings));
+    this.httpService.sendProfileSettings().subscribe((data:Response)=>{
+        alert('good')
+      }, onerror => {
+        alert('bad')
+      }
+    );
+    //this.router.navigate(['profile'])
   }
 
   next(){
