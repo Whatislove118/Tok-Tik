@@ -40,6 +40,8 @@ export class ConfidentComponent implements OnInit {
     this.user.profile_settings.set_confident_settings(Boolean(this.private_account), Boolean(this.allow_download_video),
                                                       Boolean(this.comments_filter), this.allow_private_messages,
                                                       this.allow_likes_list_looking);
+    console.log(this.user.profile_settings);
+    alert(1);
     this.router.navigate(['reg/settings/security'])
   }
 }

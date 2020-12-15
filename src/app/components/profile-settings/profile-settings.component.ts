@@ -3,6 +3,7 @@ import {HttpService} from '../../../HttpService';
 import {Router} from '@angular/router';
 import {User} from '../../../user';
 import {isBoolean} from 'util';
+import {Avatar} from '../../../Avatar';
 
 @Component({
   selector: 'app-profile-settings',
@@ -13,7 +14,7 @@ export class ProfileSettingsComponent implements OnInit {
   user: User = this.httpService.getUser();
   username: string;
   push_notification: string;
-  avatar: File;
+  img: File = null;
   first_routing: boolean = true;
 
 
@@ -27,8 +28,8 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user)
-    this.check_first_routing()
+    console.log(this.user);
+    this.check_first_routing();
     console.log(this.first_routing)
   }
 
@@ -40,7 +41,9 @@ export class ProfileSettingsComponent implements OnInit {
     this.router.navigate(['reg/settings/confident'])
   }
   next() {
-    this.user.profile_settings.set_profile_settings(this.username, Boolean(this.push_notification), this.avatar);
+    let avatar = new Avatar(this.img);
+    this.user.profile_settings.set_profile_settings(this.username, Boolean(this.push_notification), avatar);
+    console.log(JSON.stringify(this.user.profile_settings));
     this.router.navigate(['reg/settings/confident'])
   }
 }

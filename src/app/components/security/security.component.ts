@@ -37,6 +37,15 @@ export class SecurityComponent implements OnInit {
   }
 
   next(){
+    this.httpService.sendProfileSettings().subscribe(
+      (data: Response) => {
+        console.log(data.status);
+        alert('Успех!');
+
+      }, onerror => {
+        alert('Ошибка! Попробуйте еще раз!')
+      }
+    )
     this.router.navigate(['profile'])
   }
 }

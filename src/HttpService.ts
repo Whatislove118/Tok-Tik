@@ -11,16 +11,16 @@ export class HttpService{
   reg: boolean = false;
   access_token:string = null;
   refresh_token:string = null;
-  private headers = new HttpHeaders().set('content-type', 'application/json');
+  private headers = new HttpHeaders().set('content-type', 'application/json').set('enctype','multipart/form-data');
+
 
 
   private serverUrls = {
     'reg': 'http://127.0.0.1:8000/users/',
     'auth': 'http://127.0.0.1:8000/users/auth/',
     'test': 'http://127.0.0.1:8000/api-token/refresh/',
-    'profile_settings': 'http://127.0.0.1:8000/users/profile/settings',
+    'profile_settings': 'http://127.0.0.1:8000/users/profile/settings/',
   };
-
 
 
 
@@ -54,7 +54,15 @@ export class HttpService{
   }
 
   sendProfileSettings(): Observable<any>{
-    return this.http.post(this.serverUrls.profile_settings, {'profile-settings': this.user.profile_settings}, {headers: this.headers, withCredentials:true, observe: 'response'})
+    return this.http.put(this.serverUrls.profile_settings, {
+        'profile-settings': this.user.profile_settings.getWrapper(),
+        'confidentiality': this.user.profile_settings.confident,
+        'avatar': this.user.profile_settings.avatar,
+        'security':this.user.profile_settings.security
+      },
+      {
+        headers: this.headers, withCredentials:true, observe: 'response',
+      });
   }
 
   setUser(user:User){

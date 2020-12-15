@@ -1,25 +1,26 @@
 import {Injectable} from '@angular/core';
+import {Avatar} from './Avatar';
+import {Confident} from './Confident';
+import {Security} from './Security';
+import {Wrapper_profile_settings} from './wrapper_profile_settings';
+
 
 @Injectable()
 export class Profile_settings{
   username: string;
   push_notifications: boolean = true;
-  avatar: File;
+  avatar: Avatar = null;
+  wrap_profile_settings: Wrapper_profile_settings = null;
+  confident: Confident = new Confident();
 
-  private_account: boolean = false;
-  allow_download_video: boolean = true;
-  comments_filter: boolean = true;
-  allow_private_messages: string = 'all';
-  allow_likes_list_looking: string = 'all';
+  security: Security = new Security();
 
-  two_step_verification: boolean = false;
-  your_device: Array<string> = new Array();
 
   constructor() {
 
   }
 
-  set_profile_settings(username: string, push_notifications: boolean, avatar: File) {
+  set_profile_settings(username: string, push_notifications: boolean, avatar: Avatar) {
     this.username = username;
     this.push_notifications = push_notifications;
     this.avatar = avatar;
@@ -29,24 +30,29 @@ export class Profile_settings{
                          comments_filter: boolean,allow_private_messages: string,
                          allow_likes_list_looking: string){
 
-    this.private_account = private_account;
-    this.allow_download_video = allow_download_video;
-    this.comments_filter = comments_filter;
-    this.allow_private_messages = allow_private_messages;
-    this.allow_likes_list_looking = allow_likes_list_looking;
+    this.confident.private_account = private_account;
+    this.confident.allow_download_video = allow_download_video;
+    this.confident.comments_filter = comments_filter;
+    this.confident.allow_private_messages = allow_private_messages;
+    this.confident.allow_likes_list_looking = allow_likes_list_looking;
 
   }
 
   set_security_settings(two_step_verification: boolean){
-    this.two_step_verification = two_step_verification;
+    this.security.two_step_verification = two_step_verification;
 
   }
 
 
   check_devices(device:string){
-    if (this.your_device.indexOf(device)==-1){
+    if (this.security.your_device.indexOf(device)==-1){
       console.log(1);
-        this.your_device.push(device)
+        this.security.your_device.push(device)
     }
+  }
+
+  getWrapper(){
+    this.wrap_profile_settings = new Wrapper_profile_settings(this.username, this.push_notifications);
+    return this.wrap_profile_settings;
   }
 }
