@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../../user'
 import { Router } from '@angular/router';
 import {HttpService} from '../../../HttpService';
-import {CookieService} from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-form-reg',
@@ -17,7 +17,7 @@ export class FormRegComponent implements OnInit {
   private statusReg: number;
 
 
-  constructor(private router: Router, private httpService: HttpService, private cookieService:CookieService) { }
+  constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
 

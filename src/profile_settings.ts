@@ -43,7 +43,6 @@ export class Profile_settings{
 
   }
 
-
   check_devices(device:string){
     if (this.security.your_device.indexOf(device)==-1){
       console.log(1);

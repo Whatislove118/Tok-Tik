@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from '../../../HttpService';
 import {Router} from '@angular/router';
 import {User} from '../../../user';
@@ -16,15 +16,19 @@ export class ProfileSettingsComponent implements OnInit {
   push_notification: string;
   img: File = null;
   first_routing: boolean = true;
-
+  @ViewChild('name', {static: false}) name: ElementRef;
 
   constructor(private router: Router, private httpService: HttpService) { }
-
 
   check_first_routing(){
     if(this.router.url!='/reg/settings/profile'){
       this.first_routing = false;
     }
+  }
+
+  ngAfterViewInit(){
+      this.name.nativeElement.placeholder = this.user.profile_settings.username;
+
   }
 
   ngOnInit() {
