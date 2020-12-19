@@ -5,7 +5,7 @@
   <label><input type = "radio" [(ngModel)]="this.two_step_verification" value="true" name="2FA"> Да </label>
   <label><input type = "radio" [(ngModel)]="this.two_step_verification" value="false" name="2FA" style="margin-left: 100px"> Нет </label>
 </div>
-<label for="your-devices">Ваши устройства:</label>
+  <label for="your-devices">Ваши устройства:</label>
   <div id="your-devices">
     <ul>
       <li *ngFor="let device of this.user.profile_settings.security.your_device">{{device}}</li>
