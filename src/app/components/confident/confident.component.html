@@ -17,9 +17,9 @@
   </div>
   <label for="allow-private-messages">Кто может отправлять вам приватные сообщения</label>
   <div id="allow-private-messages">
-    <label><input type = "radio" [(ngModel)]="this.allow_private_messages" value="all" name="PrivateMess"> Все </label>
-    <label><input type = "radio" [(ngModel)]="this.allow_private_messages" value="friends" name="PrivateMess" style="margin-left: 50px"> Друзья </label>
-    <label><input type = "radio" [(ngModel)]="this.allow_private_messages" value="nobody" name="PrivateMess" style="margin-left: 50px"> Никто </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_private_message" value="all" name="PrivateMess"> Все </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_private_message" value="friends" name="PrivateMess" style="margin-left: 50px"> Друзья </label>
+    <label><input type = "radio" [(ngModel)]="this.allow_private_message" value="nobody" name="PrivateMess" style="margin-left: 50px"> Никто </label>
   </div>
   <label for="allow-likes-list-video">Кто видит понравившиеся вам видео</label>
   <div id="allow-likes-list-video">
@@ -27,18 +27,13 @@
     <label><input type = "radio" [(ngModel)]="this.allow_likes_list_looking" value="me" name="LikeList" class="right-rb"> Только я </label>
   </div>
 </div>
-<div *ngIf="first_routing" id="button-form" style="margin-left: 80px">
+<div id="button-form" style="margin-left: 80px">
   <div style="margin-top: 30px; margin-left: 30px">
     <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
   </div>
   <br/>
   <div style="margin-top: 15px; margin-left: 60px">
-    <a (click)="skip_confident_settings()">Пропустить</a>
-  </div>
-</div>
-<div *ngIf="!first_routing" style="margin-left: 70px">
-  <div style="margin-top: 30px; margin-left: 40px">
-    <a (click)="submit_changes()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
+    <a *ngIf="first_routing" (click)="skip_confident_settings()">Пропустить</a>
   </div>
 </div>
 <app-navbar *ngIf="!first_routing"> </app-navbar>

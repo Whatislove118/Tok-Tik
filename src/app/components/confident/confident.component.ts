@@ -10,16 +10,16 @@ import {User} from '../../../user';
 })
 export class ConfidentComponent implements OnInit {
   user: User = this.httpService.getUser();
-  private_account: string;
-  allow_download_video: string;
-  comments_filter: string;
-  allow_private_messages: string;
+  private_account: boolean;
+  allow_download_video: boolean;
+  comments_filter: boolean;
+  allow_private_message: string;
   allow_likes_list_looking: string;
   first_routing: boolean = true;
   constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
-    this.check_first_routing()
+    this.check_first_routing();
     console.log(this.first_routing)
   }
 
@@ -37,11 +37,20 @@ export class ConfidentComponent implements OnInit {
   }
 
   next() {
-    this.user.profile_settings.set_confident_settings(Boolean(this.private_account), Boolean(this.allow_download_video),
-                                                      Boolean(this.comments_filter), this.allow_private_messages,
+    this.user.profile_settings.set_confident_settings(this.private_account,this.allow_download_video,
+                                                      this.comments_filter, this.allow_private_message,
                                                       this.allow_likes_list_looking);
-    console.log(this.user.profile_settings);
-    alert(1);
-    this.router.navigate(['reg/settings/security'])
+    this.httpService.sendConfidentiality().subscribe((data: Response) => {
+        console.log('Changes good')
+      }, onerror =>{
+        console.log('shahid');
+        return
+      }
+    );
+    if (this.first_routing != true){
+      this.router.navigate(['profile/settings'])
+    }else {
+      this.router.navigate(['reg/settings/security'])
+    }
   }
 }

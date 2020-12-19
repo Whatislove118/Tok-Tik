@@ -8,23 +8,16 @@
 <label for="your-devices">Ваши устройства:</label>
   <div id="your-devices">
     <ul>
-      <li *ngFor="let device of this.user.profile_settings.your_device">{{device}}</li>
+      <li *ngFor="let device of this.user.profile_settings.security.your_device">{{device}}</li>
     </ul>
   </div>
 </div>
-<div id="button-form" style="margin-left: 80px" *ngIf="first_routing">
   <div style="margin-top: 30px; margin-left: 40px">
     <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
   </div>
   <br/>
   <div style="margin-top: 15px; margin-left: 70px">
-    <a (click)="skip_security_settings()">Пропустить</a>
+    <a *ngIf='first_routing' (click)="skip_security_settings()">Пропустить</a>
   </div>
-</div>
-<div *ngIf="!first_routing" style="margin-left: 70px">
-  <div style="margin-top: 30px; margin-left: 40px">
-    <a (click)="submit_changes()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
-  </div>
-</div>
 <app-navbar *ngIf="!first_routing"> </app-navbar>
 

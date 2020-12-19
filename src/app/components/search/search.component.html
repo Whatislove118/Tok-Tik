@@ -1,3 +1,17 @@
 <app-header></app-header>
-<p>Next realease</p>
+<div id="send-comment">
+  <input type="textarea" placeholder="Хештэг..." style="width: 340px; height: 50px" name='hashtag' #hashtag [(ngModel)]="this.hashtags">
+  <button class="btn btn-secondary" style="margin-right: 10px; margin-top: 10px"  (click)="searchVideosWithHashtags()"><small>Отправить</small></button>
+</div>
+<div style="height: 400px; overflow: scroll; background: white; margin-top: 10px">
+  <div id="content">
+    <div *ngFor="let video of videos" class="layout_panel">
+      <div class="layout_content">
+        <video  id="video" (click)="goToVideoInTape(video.url)" class="video-preview" #videoElement loop>
+          <source #videoobj  src="{{video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
 <app-navbar></app-navbar>

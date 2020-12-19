@@ -1,83 +1,32 @@
 <app-header></app-header>
 <div>
   <div id = "avatar" style="margin-right: auto; margin-left: auto; width: 150px">
-    <img style="border: 1px solid black;border-radius: 100px; width: 130px; height: 130px" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-    <p style="margin-left: 27px">@{{this.user.profile_settings.username}}</p>
+    <img style="border: 1px solid black;border-radius: 100px; width: 130px; height: 130px" src = "{{this.httpService.getUser().profile_settings.avatar.url}}">
+    <p style="margin-left: 27px">@{{this.httpService.getUser().login}}</p>
   </div>
   <div id = "info" style="display: flex; height: 65px; justify-content: space-around; border: 2px solid black; background: white" >
     <div style="">
       <label for="subscriptions">Подписки</label>
-      <p style="margin-left: 30px" id = "subscriptions">3</p>
+      <p style="margin-left: 30px" id = "subscriptions">{{this.httpService.getUser().user_statistics.count_followers}}</p>
     </div>
     <div style="">
-      <label for="subscribers">Подписчики</label>
-      <p style="margin-left: 40px" id = "subscribers">1</p>
+      <label for="subscribers">Видео</label>
+      <p style="margin-left: 40px" id = "subscribers">{{this.httpService.getUser().user_statistics.amount_videos}}</p>
     </div>
     <div style="">
       <label for="like">Лайки</label>
-      <p style="margin-left: 20px" id = "like">0</p>
+      <p style="margin-left: 20px" id = "like">{{this.httpService.getUser().user_statistics.likes_on_videos}}</p>
     </div>
   </div>
+    <button *ngIf="main_profile" (click)="addVideo()">Добавить видео</button>
+    <button *ngIf="!main_profile" (click)="follow()">Подписаться</button>
   <div style="height: 290px; overflow: scroll; background: white; margin-top: 10px">
     <div id="content">
-      <div class="layout_panel">
+      <div *ngFor="let video of videos" class="layout_panel">
         <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-        </div>
-      </div>
-      <div class="layout_panel">
-        <div class="layout_content">
-          <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+          <video  id="video" (click)="goToVideoInTape(video.url)" class="video-preview" #videoElement loop>
+            <source #videoobj  src="{{video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+          </video>
         </div>
       </div>
     </div>

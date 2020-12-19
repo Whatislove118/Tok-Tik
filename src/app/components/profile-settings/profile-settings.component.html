@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div>
-  <form method="post" style="margin-left: 40px; margin-top: 100px;width:75%">
+  <form method="post" style="margin-left: 40px; margin-top: 100px;width:75%" enctype="multipart/form-data" (ngSubmit)="set_profile_settings()">
     <div class="form-group" style="margin-left: 20%">
       <div style="margin-top: 20px">
         <label for="username-input">Введите username</label>
@@ -15,23 +15,23 @@
       </div>
       <div style="margin-top: 20px" class="form-group">
         <label for="avatar-download">Добавьте аватар</label>
-        <input type="file" class="form-control-file" [(ngModel)]="this.img" name="avatar"  id="avatar-download">
+        <input type="file" class="form-control-file" (change)="handleFileInput($event.target.files)" name="avatar"  id="avatar-download">
       </div>
     </div>
-  </form>
-  <div *ngIf="first_routing" id="button-form" style="margin-left: 70px">
+  <div id="button-form" style="margin-left: 70px">
     <div style="margin-top: 30px; margin-left: 40px">
-      <a (click)="next()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
+      <input  type="submit" class="btn btn-info but btn-lg">
     </div>
     <br/>
-    <div style="margin-top: 15px; margin-left:  70px">
+    <div *ngIf="first_routing" style="margin-top: 15px; margin-left:  70px">
       <a (click)="skip_profile_settings()">Пропустить</a>
     </div>
   </div>
-  <div *ngIf="!first_routing" style="margin-left: 70px">
-    <div style="margin-top: 30px; margin-left: 40px">
-      <a (click)="submit_changes()"><button  type="button" class="btn btn-info but btn-lg">Подтвердить</button></a>
-    </div>
-  </div>
+<!--  <div *ngIf="!first_routing" style="margin-left: 70px">-->
+<!--    <div style="margin-top: 30px; margin-left: 40px">-->
+<!--      <a><input  type="submit" class="btn btn-info but btn-lg">Подтвердить</a>-->
+<!--    </div>-->
+<!--  </div>-->
+  </form>
 </div>
 <app-navbar *ngIf="!first_routing"> </app-navbar>

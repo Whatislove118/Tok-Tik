@@ -1,0 +1,18 @@
+#content {
+  column-count: 3;
+  column-gap: 0;
+}
+.video-preview {
+  border: 1px solid blue;
+  width: 118px;
+  height: 118px
+}
+.layout_panel {
+  break-inside: auto;
+  padding: 2px;
+
+}
+.layout_content {
+  padding: 1px;
+  border-radius: 10px;
+}

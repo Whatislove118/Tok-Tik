@@ -1,71 +1,17 @@
 <app-header></app-header>
 <div id="auido-info">
-  <img src="https://se.ifmo.ru/~s263069/Isbd/ava.jpg" width="110px" height="110px" style="border: 1px solid black">
   <div id="audio-description">
-    <h4>Платина</h4>
-    <p>Иней</p>
+    <h4 id="author" #author>Платина</h4>
+    <p id="audio-name" #audioname>Иней</p>
   </div>
 </div>
 <div style="height: 370px; overflow: scroll; background: white; margin-top: 15px">
   <div id="content">
-    <div class="layout_panel">
+    <div *ngFor="let video of videos"  class="layout_panel">
       <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
-      </div>
-    </div>
-    <div class="layout_panel">
-      <div class="layout_content">
-        <img class="video-preview" src = "https://se.ifmo.ru/~s263069/Isbd/ava.jpg">
+        <video  id="video" (click)="goToVideoInTape(video.url)" class="video-preview" #videoElement loop>
+          <source #videolol  src="{{video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        </video>
       </div>
     </div>
   </div>

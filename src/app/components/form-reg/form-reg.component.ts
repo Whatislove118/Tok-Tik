@@ -37,11 +37,11 @@ export class FormRegComponent implements OnInit {
     this.httpService.regUser()
       .subscribe(
         (data:Response, )=>{
-          console.log(data.status);
           data.status === 201 ? this.httpService.reg = true : false;
           this.httpService.authUser().subscribe((data:Response)=>{
               this.httpService.setTokensInFields(data.headers.get('access-token'), data.headers.get('refresh-token'));
               this.httpService.setTokensInHeaders();
+              this.httpService.user_id = JSON.parse(JSON.stringify(data.body))['id'];
               if( data.status === 200){
                 alert('Вы были успешно зарегестрированы!');
                 this.router.navigate(['/reg/settings'])

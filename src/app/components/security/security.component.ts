@@ -11,7 +11,7 @@ import {HttpService} from '../../../HttpService';
 })
 export class SecurityComponent implements OnInit {
   user: User = this.httpService.getUser();
-  two_step_verification: string;
+  two_step_verification: boolean;
   first_routing: boolean = true;
   constructor(private deviceService: DeviceDetectorService,private httpService: HttpService, private router: Router) { }
 
@@ -37,16 +37,19 @@ export class SecurityComponent implements OnInit {
   }
 
   next(){
-    this.httpService.sendProfileSettings().subscribe(
-      (data: Response) => {
-        console.log(data.status);
-        alert('Успех!');
-
-      }, onerror => {
-        alert('Ошибка! Попробуйте еще раз!')
+    this.httpService.getUser().profile_settings.set_security_settings(this.two_step_verification);
+    this.httpService.sendSecurity().subscribe((data: Response) => {
+        console.log('Changes good')
+      }, onerror =>{
+        console.log('shahid');
+        return
       }
-    )
-    this.router.navigate(['profile'])
+    );
+    if (this.first_routing != true){
+      this.router.navigate(['profile/settings'])
+    }else {
+      this.router.navigate(['profile'])
+    }
   }
 }
 

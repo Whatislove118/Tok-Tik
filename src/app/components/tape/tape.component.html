@@ -13,12 +13,11 @@
     <div id="statistics">
       <img  (click)="shareVideo()" style="width: 40px; height: 40px; background-color: white;border: 1px solid black;border-radius: 40px;" src = "https://se.ifmo.ru/~s263069/Isbd/share-icon.png">
       <a (click)="goToComments()"><img style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/comment-icon.png"></a>
-      <img style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/like-icon.png">
-      <div style="color: white">222K</div>
+      <img (click)="likeVideo()" style="margin-top: 30px; width: 40px; height: 40px" src = "https://se.ifmo.ru/~s263069/Isbd/like-icon.png">
+      <div  style="color: white"><p #likes></p></div>
     </div>
     <img #pause  (click)="playOrStopVideo()" id = "pl" style="width: 150px; height: 150px" src = "https://se.ifmo.ru/~s263069/Isbd/play-icon.png">
     <video (click)="playOrStopVideo()" id="video" style="width:375px; height: 450px;" #videoElement loop>
-      <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
       <source #video src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
     </video>
     <div id="audio">
@@ -26,12 +25,12 @@
     </div>
     <div id="link" #link>
       <img (click)="hide()" style="width: 20px; height: 20px; margin-left: 335px" src = "https://se.ifmo.ru/~s263069/Isbd/exit.png">
-      <p style="text-align: center"><a href="https://2ch.hk/b/src/234971472/16074516977990.mp4">https://2ch.hk/b/src/234971472/<br/>16074516977990.mp4</a></p>
+<!--      <p style="text-align: center"><a href="{{'http://localhost:8000' + this.current_video.url}}">{{'http://localhost:8000' + this.current_video.url}}</a></p>-->
     </div>
-    <div>
-<!--      <p style="margin-left: 27px">@{{this.user.profile_settings.username}}</p>-->
-      <p style="color: white; margin-left: 10px">отличное видео для всей семьи</p>
-      <p style="color: white; margin-left: 10px; margin-bottom: 5px">#камапуля, #хасик, #КлубникаБомбаЧестноГоворя</p>
+    <small style="color: red; margin-left: 10px; z-index: 2" #hashtags></small>
+    <div style="margin-bottom: 20px;">
+    <p style="margin-left: 27px; color: red" id="owner_username" (click)="goToUserProfile()" #owner_username>@</p>
+      <p style="color: white; margin-left: 10px" id="description" #description> </p>
     </div>
   </div>
 <app-navbar></app-navbar>

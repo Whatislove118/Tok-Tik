@@ -11,6 +11,7 @@ import {Profile_settings} from '../../../profile_settings';
   templateUrl: './set-profile-settings.component.html',
   styleUrls: ['./set-profile-settings.component.css']
 })
+
 export class SetProfileSettingsComponent implements OnInit {
   private user: User = this.httpService.getUser();
 
@@ -28,13 +29,16 @@ export class SetProfileSettingsComponent implements OnInit {
   skip_settings(){
     console.log(JSON.stringify(this.user.profile_settings));
     console.log(JSON.stringify(this.httpService.getUser().profile_settings));
-    this.httpService.sendProfileSettings().subscribe((data:Response)=>{
-        alert('good')
+    this.httpService.skipProfileSettings().subscribe((data:Response)=>{
+      let url = JSON.parse(JSON.stringify(data.body));
+      console.log(JSON.parse(JSON.stringify(data.body)));
+      this.httpService.parseUrl(url);
+      this.router.navigate(['profile'])
       }, onerror => {
-        alert('bad')
+        alert('bad');
+        return
       }
     );
-    //this.router.navigate(['profile'])
   }
 
   next(){

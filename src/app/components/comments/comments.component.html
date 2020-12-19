@@ -1,52 +1,17 @@
 <app-header></app-header>
 <div id="list-comments">
-  <div class="comment">
-    <h6>@Lil_krystall</h6>
-    <p class="comment-description">РНБ ВНАТУРЕ ЙОУ!</p>
+  <div *ngFor="let com of comments_storage" class="comment">
+    <h6>@{{com.comment_username}}</h6>
+    <p class="comment-description">{{com.comment_text}}</p>
     <div class="comment-info">
-      <p>24.07.2020</p>
-      <div style="height: 24px; width: 45px"><img style="width: 20px; height: 20px; float: left; margin-right: 5px" sclass="comment-like-icon" src="https://se.ifmo.ru/~s263069/Isbd/like-icon.png"><div>5</div></div>
+      <p>{{com.date_of_published}}</p>
+      <div style="height: 24px; width: 45px"><img (click)="like_comment(com.comment_id)" style="width: 20px; height: 20px; float: left; margin-right: 5px" sclass="comment-like-icon" src="https://se.ifmo.ru/~s263069/Isbd/like-icon.png"><div>{{com.comment_likes}}</div></div>
     </div>
   </div>
   <br/>
-  <div class="comment">
-    <h6>@Lil_krystall</h6>
-     <p class="comment-description">РНБ ВНАТУРЕ ЙОУ!</p>
-    <div class="comment-info">
-      <p>24.07.2020</p>
-      <img src="https://se.ifmo.ru/~s263069/Isbd/like-icon.png" class="comment-like-icon">
-    </div>
-  </div>
-  <br/>
-  <div class="comment">
-    <h6>@Lil_krystall</h6>
-     <p class="comment-description">РНБ ВНАТУРЕ ЙОУ!</p>
-    <div class="comment-info">
-      <p>24.07.2020</p>
-      <img src="https://se.ifmo.ru/~s263069/Isbd/like-icon.png" class="comment-like-icon">
-    </div>
-  </div>
-  <br/>
-  <div class="comment">
-    <h6>@Lil_krystall</h6>
-     <p class="comment-description">РНБ ВНАТУРЕ ЙОУ!</p>
-    <div class="comment-info">
-      <p>24.07.2020</p>
-      <img src="https://se.ifmo.ru/~s263069/Isbd/like-icon.png" class="comment-like-icon">
-    </div>
-  </div>
-  <br/>
-  <div class="comment">
-    <h6>@Lil_krystall</h6>
-     <p class="comment-description">РНБ ВНАТУРЕ ЙОУ!</p>
-    <div class="comment-info">
-      <p>24.07.2020</p>
-      <img src="https://se.ifmo.ru/~s263069/Isbd/like-icon.png" class="comment-like-icon">
-    </div>
-  </div>
 </div>
 <div id="send-comment">
-  <input type="textarea" placeholder="Комментарий..." style="width: 340px; height: 50px">
-  <button class="btn btn-primary"><small>Отправить</small></button>
+  <input type="textarea" placeholder="Комментарий..." style="width: 340px; height: 50px" name='comment' #commentar [(ngModel)]="this.comment">
+  <button class="btn btn-primary" (click)="add_comments()" ><small>Отправить</small></button>
 </div>
 <app-navbar></app-navbar>

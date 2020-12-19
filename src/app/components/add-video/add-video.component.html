@@ -1,0 +1,25 @@
+<app-header></app-header>
+<form enctype="multipart/form-data" (ngSubmit)="sendVideo()">
+  <label for="description">Описание</label>
+  <br/>
+  <input type="text" id="description" [(ngModel)]="this.video_description" name="description" placeholder="description">
+  <br/>
+  <label for="hashtags">Хештеги(разделенные пробелом)</label>
+  <br/>
+  <input type="text" id="hashtags" [(ngModel)]="this.hash_tags" name='hashtags' placeholder="hastags">
+  <br/>
+  <label for="video">Видео</label>
+  <br/>
+  <input type="file" id='video' (change)="handleVideoInput($event.target.files)" name="video" placeholder="Видео">
+  <br/>
+  <label for="audio-name">Название песни</label>
+  <br/>
+  <input type="text" id="audio-name" [(ngModel)]="this.audio_name" name="audio_name" placeholder="Название">
+  <br/>
+  <label for="author-name">Название автора</label>
+  <br/>
+  <input type="text" id="author-name" [(ngModel)]="this.author_name" name="author_name" placeholder="Автор">
+  <br/>
+  <input type="submit">
+</form>
+<app-navbar></app-navbar>
