@@ -16,9 +16,9 @@ export class MainGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // if (this.httpService.getUser() == undefined ) {
-    //   return this.router.navigate(['']);
-    // }
+    if (this.httpService.getUser() == undefined ) {
+      return this.router.navigate(['']);
+    }
     return true;
 
   }

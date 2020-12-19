@@ -9,7 +9,7 @@ import {Wrapper_profile_settings} from './wrapper_profile_settings';
 export class Profile_settings{
   username: string;
   push_notifications: boolean = true;
-  avatar: Avatar = null;
+  avatar: Avatar = new Avatar(null);
   wrap_profile_settings: Wrapper_profile_settings = null;
   confident: Confident = new Confident();
 
@@ -27,13 +27,13 @@ export class Profile_settings{
   }
 
   set_confident_settings(private_account: boolean, allow_download_video: boolean,
-                         comments_filter: boolean,allow_private_messages: string,
+                         comments_filter: boolean,allow_private_message: string,
                          allow_likes_list_looking: string){
 
     this.confident.private_account = private_account;
     this.confident.allow_download_video = allow_download_video;
     this.confident.comments_filter = comments_filter;
-    this.confident.allow_private_messages = allow_private_messages;
+    this.confident.allow_private_message = allow_private_message;
     this.confident.allow_likes_list_looking = allow_likes_list_looking;
 
   }

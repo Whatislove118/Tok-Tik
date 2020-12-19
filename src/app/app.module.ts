@@ -26,6 +26,7 @@ import { ShareLinkComponent } from './components/share-link/share-link.component
 import { MusicComponent } from './components/music/music.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import {CookieService} from 'ngx-cookie-service';
+import { AddVideoComponent } from './components/add-video/add-video.component';
 
 
 
@@ -44,8 +45,13 @@ const appRoutes: Routes = [
   { path: 'profile/settings/set_security', component: SecurityComponent, canActivate:[MainGuard]},
   { path: 'search', component: SearchComponent, canActivate: [MainGuard]},
   { path: 'tape', component: TapeComponent, canActivate: [MainGuard]},
-  { path: 'video/music', component: MusicComponent, canActivate: [MainGuard]},
-  { path: 'video/comments', component: CommentsComponent, canActivate: [MainGuard]}
+  { path: 'video/music/:id', component: MusicComponent, canActivate: [MainGuard]},
+  { path: 'video/comments/:id', component: CommentsComponent, canActivate: [MainGuard]},
+  { path: 'video/add', component: AddVideoComponent, canActivate: [MainGuard]},
+  { path: 'tape/:id', component: TapeComponent, canActivate: [MainGuard]},
+  { path: 'profile/:id', component: ProfileComponent, canActivate:[MainGuard]},
+
+
 ];
 
 // @ts-ignore
@@ -69,6 +75,7 @@ const appRoutes: Routes = [
     ShareLinkComponent,
     MusicComponent,
     CommentsComponent,
+    AddVideoComponent,
 
 
   ],

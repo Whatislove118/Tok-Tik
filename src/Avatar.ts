@@ -1,14 +1,13 @@
 export class Avatar {
-  private name: string;
-  private url: string = null;
-  private avatar_uri: string = null;
-  private file: File = null;
+ file: File = null;
+  url_default: string = '/static/default_img.png/';
+ url: string = 'http://localhost:8000' + this.url_default;
 
 
   constructor(file:File) {
-    this.name = file.name;
     this.file = file;
   }
+
 
 }
 
